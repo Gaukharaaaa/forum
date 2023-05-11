@@ -1,0 +1,22 @@
+{{template "base" .}}
+{{define "title"}}Home{{end}}
+{{define "main"}}
+<h2>My Posts</h2>
+
+{{range .Posts}}
+<a href="/post?id={{.ID}}" class="square_link">
+<div class='snippet'>
+    <div class='metadata'>
+        <strong>{{.Title}}</strong>
+        <span>#{{.ID}}</span>
+    </div>
+    <div class='metadata username'>
+       
+        <time>Created by you at {{humanDate .Created_At}}</time>
+    </div>
+</div>
+</a>
+{{else}}
+<p>There's nothing to see here... yet!</p>
+{{end}}
+{{end}}

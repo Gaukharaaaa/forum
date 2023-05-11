@@ -1,0 +1,36 @@
+{{template "base" .}}
+{{define "title"}}Create a New Post{{end}}
+{{define "main"}}
+<form action='/post/create/' method='POST'>
+    <div>
+  
+        <label>Title:</label>
+        {{with .Form.Errors.Get "title"}}
+        <label class='error'>{{.}}</label>
+        {{end}}
+        <input type='text' name='title' value='{{.Form.Get "title"}}'>
+        </div>
+        <div>
+        <label>Description:</label>
+        {{with .Form.Errors.Get "description"}}
+        <label class='error'>{{.}}</label>
+        {{end}}
+        <textarea name='description'>{{.Form.Get "description"}}</textarea>
+        </div>
+        <div class="category">
+            <br>
+            <p1> Choose category:</p1>
+            <br>
+            <div><input type="checkbox" name="category" value="General topic" id="1" ><label for="1">General topic</label></div>
+            <div><input type="checkbox" name="category" value="Food" id="2"><label for="2">Food</label></div>
+            <div><input type="checkbox" name="category" value="Life style" id="3"><label for="3">Life style</label></div>
+            <div><input type="checkbox" name="category" value="Sport" id="4"><label for="4">Sport</label></div>
+            <div><input type="checkbox" name="category" value="Fashion" id="5"><label for="5">Fashion</label></div>
+          </div>
+          <br>
+       
+        <input type='submit' value='Publish post'>
+        </div>
+     
+</form>
+{{end}}
